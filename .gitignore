@@ -1,3 +1,12 @@
+
+/黑炎龍.vcxproj
+/黑炎龍.vcxproj.filters
+/黑炎龍.vcxproj.user
+
+# 미구현
+
+/Transform.h
+/Transform.cpp
 /Camera.h
 /Debug
 /Engine.cpp
@@ -11,15 +20,3 @@
 /Quaternion.h
 /Render.cpp
 /Render.h
-/Screen.cpp
-/Transform.cpp
-/Transform.h
-/Triangle.cpp
-/Triangle.h
-/Vector2.cpp
-/Vector2.h
-/Vector3.cpp
-/Vector3.h
-/黑炎龍.vcxproj
-/黑炎龍.vcxproj.filters
-/黑炎龍.vcxproj.user
