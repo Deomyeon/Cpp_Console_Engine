@@ -3,7 +3,7 @@
 
 <h1> 예제 </h1>
 
-    Screen screen(400, 400, "example");
+    Screen screen(Vector2(400, 400), "example");
 
     screen.SetConsole();
 
@@ -11,8 +11,8 @@
     {
         for (int j = 0; j <= i; j++)
         {
-            screen.SetPixelInScreen(j, i, 255 * i / 400);
-            screen.SetPixelInScreen(i, j, 255 * i / 400);
+            screen.SetPixelInScreen(Vector2(j, i), 255 * i / 400);
+            screen.SetPixelInScreen(Vector2(i, j), 255 * i / 400);
         }
     }
     screen.DrawScreen();
