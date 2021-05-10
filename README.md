@@ -1,6 +1,28 @@
 <h1>갓 cpp로 만드는 콘솔 엔진!</h1>
 <br>
 
+<h1> 예제 </h1>
+
+    Screen screen(400, 400, "example");
+
+    screen.SetConsole();
+
+    for (int i = 0; i < 400; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            screen.SetPixelInScreen(j, i, 255 * i / 400);
+            screen.SetPixelInScreen(i, j, 255 * i / 400);
+        }
+    }
+    screen.DrawScreen();
+
+    Sleep(5000);
+
+    screen.ResetConsole();
+
+<br>
+
 <ul>
   <li><h1> Screen.h </h1> </li>
   
