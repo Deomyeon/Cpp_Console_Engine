@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <array>
 #include <algorithm>
 
 class Vector2
@@ -18,8 +19,8 @@ public:
 	std::vector<Vector2> GetLine(Vector2 target);
 	float GetDistance(Vector2 target);
 
-	static std::vector<Vector2> GetMeshTriangle(std::vector<Vector2>&& triangle);
-	static std::vector<Vector2> GetWireFrameTriangle(std::vector<Vector2>&& triangle);
+	static std::vector<Vector2> GetMeshTriangle(std::array<Vector2, 3>& triangle);
+	static std::vector<Vector2> GetWireFrameTriangle(std::array<Vector2, 3>& triangle);
 
 
 	inline Vector2 operator +(Vector2 target) const

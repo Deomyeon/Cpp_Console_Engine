@@ -9,7 +9,7 @@ Vector2::Vector2(float x, float y) : x(x), y(y) {}
 Vector2::~Vector2() {}
 
 
-std::vector<Vector2> Vector2::GetMeshTriangle(std::vector<Vector2>&& triangle)
+std::vector<Vector2> Vector2::GetMeshTriangle(std::array<Vector2, 3>& triangle)
 {
 	std::vector<Vector2> result;
 	for (int i = 0; i < triangle.size(); i++)
@@ -28,7 +28,7 @@ std::vector<Vector2> Vector2::GetMeshTriangle(std::vector<Vector2>&& triangle)
 	return result;
 }
 
-std::vector<Vector2> Vector2::GetWireFrameTriangle(std::vector<Vector2>&& triangle)
+std::vector<Vector2> Vector2::GetWireFrameTriangle(std::array<Vector2, 3>& triangle)
 {
 	std::vector<Vector2> result;
 	for (int i = 0; i < triangle.size(); i++)
