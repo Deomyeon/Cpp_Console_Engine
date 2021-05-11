@@ -29,7 +29,6 @@ void Screen::SetConsole() const
 
 	SetConsoleScreenBufferInfoEx(this->handle, &sbi); // 스크린버퍼 크기 설정 | 색 암 - 명 설정
 
-
 	CONSOLE_FONT_INFOEX cfi;
 	cfi.cbSize = sizeof(cfi);
 	cfi.nFont = 0;
@@ -53,7 +52,7 @@ void Screen::SetConsole() const
 	{
 		for (int y = 0; y < (int)this->size.y; y++)
 		{
-			this->screen[y * (int)this->size.y + x] = 0;
+			this->screen[y * (int)this->size.x + x] = 0;
 		}
 	}
 }
@@ -129,12 +128,12 @@ void Screen::SetColorToColor(const std::array<Color, 2> colorToColor)
 
 void Screen::SetPixelInScreen(const Vector2 position, const WORD color)
 {
-	this->screen[((int)this->size.y - 1 - (int)position.y) * (int)this->size.y + (int)position.x] = color;
+	this->screen[((int)this->size.y - 1 - (int)position.y) * (int)this->size.x + (int)position.x] = color;
 }
 
 const WORD Screen::GetPixelInScreen(const Vector2 position)
 {
-	return this->screen[((int)this->size.y - 1 - (int)position.y) * (int)this->size.y + (int)position.x];
+	return this->screen[((int)this->size.y - 1 - (int)position.y) * (int)this->size.x + (int)position.x];
 }
 
 
