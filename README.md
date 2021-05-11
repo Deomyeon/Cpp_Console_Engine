@@ -3,7 +3,7 @@
 
 <h1> 예제 </h1>
 
-    Screen screen(Vector2(400, 400), "example");
+    Screen screen(Vector2(400, 400), "example", array<Color, 2>{Color(47, 108, 236), Color(81, 202, 159)});
 
     screen.SetConsole();
 
@@ -27,8 +27,8 @@
   <li><h1> Screen.h </h1> </li>
   
   
-  <h2> Screen(const Vector2 size, const char* const title) </h2>
-  <h5> 타이틀이 title인 size 크기의 콘솔의 생성을 예약한다. </h5>
+  <h2> Screen(const Vector2 size, const char* const title, std::array<Color, 2> colorToColor) </h2>
+  <h5> 타이틀이 title이고, colorToColor 범위 내의 색을 사용 가능한 size 크기의 콘솔의 생성을 예약한다. </h5>
   <br>
   
   <h2> SetConsole() </h2>
@@ -46,6 +46,11 @@
   
   <h2> ReSize(const Vector2 size) </h2>
   <h5> 콘솔에 예약된 크기를 size로 바꾼다. </h5>
+  <h5> SetConsole() 함수를 호출해야한다. </h5>
+  <br>
+  
+  <h2> SetColorToColor(const std::array<Color, 2> colorToColor) </h2>
+  <h5> 예약된 colorToColor 범위를 바꾼다. </h5>
   <h5> SetConsole() 함수를 호출해야한다. </h5>
   <br>
   
