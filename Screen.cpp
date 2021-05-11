@@ -2,7 +2,7 @@
 
 
 
-Screen::Screen(const Vector2 size, const char* const title) : screen(new WORD[(int)size.x * (int)size.y]), handle(CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL)), size(size), title(title) {}
+Screen::Screen(const Vector2 size, const char* const title, std::array<Color, 2> colorToColor) : screen(new WORD[(int)size.x * (int)size.y]), handle(CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, 0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL)), size(size), title(title), colorToColor(colorToColor) {}
 Screen::~Screen() 
 {
 	delete[] this->screen;
@@ -20,8 +20,13 @@ void Screen::SetConsole() const
 	sbi.dwCursorPosition = { 0, 0 };
 	for (int i = 0; i < 16; i++)
 	{
-		sbi.ColorTable[i] = RGB(i * 17, i * 17, i * 17);
+		Color color = Color::black;
+		color.r = this->colorToColor[0].r + (i * (this->colorToColor[1].r - this->colorToColor[0].r) * 17 / 255);
+		color.g = this->colorToColor[0].g + (i * (this->colorToColor[1].g - this->colorToColor[0].g) * 17 / 255);
+		color.b = this->colorToColor[0].b + (i * (this->colorToColor[1].b - this->colorToColor[0].b) * 17 / 255);
+		sbi.ColorTable[i] = RGB(color.r, color.g, color.b);
 	}
+
 	SetConsoleScreenBufferInfoEx(this->handle, &sbi); // 스크린버퍼 크기 설정 | 색 암 - 명 설정
 
 
@@ -114,6 +119,11 @@ void Screen::ReSize(const Vector2 size)
 	delete[] this->screen;
 	this->size = size;
 	this->screen = new WORD[(int)size.x * (int)size.y];
+}
+
+void Screen::SetColorToColor(const std::array<Color, 2> colorToColor)
+{
+	this->colorToColor = colorToColor;
 }
 
 
